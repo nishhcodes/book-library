@@ -13,26 +13,19 @@
         input {
             margin: 10px;
         }
+        .div {
+            height: 200px;
+            background-color: orange;
+        }
     </style>
 </head>
 <body>
-    
-    <div>
-        <form>
-            <div>
-                <label for="title">Title</label>
-                <input type="text" id="title">    
-            </div>            
-            <div>
-                <label for="author">Author</label>
-                <input type="text" id="author">
-            </div>
-            <button id="btn">Submit</button>
-        </form>
-    </div>
-    <div>
-        <p id="title-para"></p>
-        <p id="author-para"></p>
-    </div>
+    <!-- Added book list container in HTML -->
+<form id="bookForm">
+    <input type="text" id="title" placeholder="Title" required>
+    <input type="text" id="author" placeholder="Author" required>
+    <button type="submit" id="btn">Add Book</button>
+</form>
+<div id="bookList"></div>
 </body>
 </html>
