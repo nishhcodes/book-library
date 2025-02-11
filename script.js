@@ -1,4 +1,4 @@
-const bookLibrary = [];
+const library = [];
 
 function Book(title, author, pages, year){
     this.title = title;
@@ -8,21 +8,49 @@ function Book(title, author, pages, year){
 }
 
 function addBookToLibrary(title, author, pages, year){
-    const newBook = new newBook(title, author, pages, year);
-    bookLibrary.push(newBook);
+    const newBook = new Book(title, author, pages, year);
+    library.push(newBook);
 }
 
-function displayBook(){
+function displayBook() {
+    const bookContainer = document.getElementById('book-container');
+    bookContainer.innerHTML = '';
 
+    library.forEach((book, index) => {
+        const createBook = document.createElement('div');
+        createBook.classList.add('books')
+        createBook.innerHTML = `
+        <h2>${book.title}</h2
+        <p>Author: ${book.author}</p>
+        <p>Pages: ${book.pages}</p>
+        <p>Published on: ${book.year}</p>
+        <button class="delete-btn" data-index="${index}">delete</button>
+        `
+        bookContainer.appendChild(createBook);
+    })
+
+    
 }
 
-const form = document.querySelector('#form-container');
-form.addEventListener('click', () => {
-    const title = document.querySelector('#title').value;
-    const author = document.querySelector('#author').value;
-    const pages = document.querySelector('#pages').value;
-    const year = document.querySelector('#year').value;
+const form = document.getElementById('form');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-    displayBook(title, author, pages, year);
+    const title = document.getElementById('title');
+    const author = document.getElementById('author');
+    const pages = document.getElementById('pages');
+    const year = document.getElementById('year');
+
+    addBookToLibrary(title.value, author.value, pages.value, year.value);
     form.reset();
+    displayBook();
+
+})
+
+document.getElementById('book-container').addEventListener('click', (e) => {
+    if(e.target.classList.contains('delete-btn')) {
+        const index = e.target.dataset.index;
+        library.splice(index, 1);
+        displayBook();
+    }
 })
