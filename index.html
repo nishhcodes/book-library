@@ -8,6 +8,31 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <main>
+        <div class="flex">
+            <div class="h-screen w-1/4 flex bg-purple-500">
+                <form id="form" class="py-2 border-solid border-black ">
+                    <div class="flex justify-between items-center m-4">
+                        <label for="title" class="text-2xl font-semibold mr-8 text-gray-50">Title</label>
+                        <input type="text" id="title" required class="bg-gray-50 py-2 px-6 text-2xl rounded-xl">
+                    </div>
+                    <div class="flex justify-between items-center m-4">
+                        <label for="author" class="text-2xl font-semibold text-gray-50">Author</label>
+                        <input type="text" id="author" required class="bg-gray-50 py-2 px-6 text-2xl rounded-xl">
+                    </div>
+                    <div class="flex justify-between items-center m-4">
+                        <label for="pages" class="text-2xl font-semibold text-gray-50">Pages</label>
+                        <input type="tel" id="pages" required class="bg-gray-50 py-2 px-6 text-2xl rounded-xl">
+                    </div>
+                    <div class="flex justify-between items-center m-4 text-gray-50">
+                        <label for="year" class="text-2xl font-semibold">Year</label>
+                        <input type="tel" id="year" required class="bg-gray-50 py-2 px-6 text-2xl rounded-xl">
+                    </div>
+                    <button type="submit" class="bg-gray-50 text-purple-500 block mx-auto px-6 py-2 text-2xl rounded-xl">Add Book</button>
+                </form>
+            </div>
+            <div id="form-container">sdfasdfasdf</div>
+        </div>
+    </main>
 </body>
 </html>
